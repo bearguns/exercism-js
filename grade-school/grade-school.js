@@ -1,7 +1,7 @@
 'use strict'
 class School {
   constructor() {
-    this.fullroster = {};
+    _this.fullroster = {};
   }
 
   roster() {
