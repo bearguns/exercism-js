@@ -10,16 +10,20 @@ describe('Random key cipher', function () {
   // Here we take advantage of the fact that plaintext of "aaa..."
   // outputs the key. This is a critical problem with shift ciphers, some
   // characters will always output the key verbatim.
-  xit('can encode', function () {
+  it('can encode', function () {
     expect(cipher.encode('aaaaaaaaaa')).toEqual(cipher.key.substr(0, 10));
   });
 
-  xit('can decode', function () {
+  it('can decode', function () {
+    console.log('Key: ' + cipher.key);
+    console.log('Cipher: ' + cipher.key.substr(0, 10));
     expect(cipher.decode(cipher.key.substr(0, 10))).toEqual('aaaaaaaaaa');
   });
 
   xit('is reversible', function () {
     var plaintext = 'abcdefghij';
+    console.log('Key is: ' + cipher.key);
+    console.log('Encoded plaintext is: ' + cipher.encode(plaintext));
     expect(cipher.decode(cipher.encode(plaintext))).toEqual(plaintext);
   });
 });
